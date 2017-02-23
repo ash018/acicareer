@@ -1,0 +1,51 @@
+/* Medium Layout: 1280px. */
+@media only screen and (min-width: 992px) and (max-width: 1280px) { 
+   
+  
+ 
+}
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px) { 
+   
+  
+}
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px) { 
+ .clients_title h2 span {
+  font-size: 0;
+}
+.clients_title {
+  width: 100%;
+}
+ .main_menu_desk{
+	display:none;
+ }
+ 
+.mobile_menu{
+	display:block;
+}
+.mobile_nave_bar{
+	display:block;
+	 margin-right: 63px;
+}
+.sidenav a {
+  padding: 8px 49px 8px 43px;
+ 
+}
+.logo {
+  width: 50px;
+}
+.logo_title h2 {
+  font-size: 15px;
+}
+.logo_title p {
+  font-size: 10px;
+}
+ 
+   
+  
+}
+/* Wide Mobile Layout: 480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) { 
+    
+}

@@ -1,0 +1,162 @@
+.futureemployee{
+    background: url("../img/career_images/fempbg.PNG") repeat-y;
+    background-size: 100%;
+    overflow: hidden;
+}
+.applyh3{
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+}
+.headerimage{
+    text-align: center;
+}
+.headerimage img:first-child{
+    margin-right: 20%;
+}
+.tasklistitem{
+    position: relative;
+    padding: 0;
+}
+
+.tasklistitem span{
+    position: absolute;
+    padding: 10px;
+    color: #000;
+    font-family: Impact, Charcoal, sans-serif;
+}
+.tag img{
+    width: 100%;
+}
+
+.actiongo{
+    color: #000;
+    margin: 0;
+    line-height: 47px;
+    font-size: 22px;
+    display: inline-block;
+    margin-left: 19px;
+}
+.withcaret:before {
+    content: "";
+    display: block;
+    background: url("../img/career_images/next.png") no-repeat;width: 80px;
+    height: 48px;
+    float: left;
+    margin: 0 10px 0 0;
+    background-size: cover;
+}
+.withcaret:after {
+    content: "";
+    display: block;
+    background: url("../img/career_images/next.png") no-repeat;width: 80px;
+    height: 48px;
+    float: right;
+    margin: 0 10px 0 0;
+    background-size: cover;
+}
+
+@media only screen and (min-width: 640px) { 
+    .tasklistitem{
+        position: relative;
+        padding: 0;
+        width:580px;
+    }
+    .tag{
+        width: 400px;
+        display: inline-block;
+    }
+    .tasklistitem span{
+        position: absolute;
+        left: 3px;
+        top: 4px;
+        padding: 10px;
+        color: #000;
+        font-family: Impact, Charcoal, sans-serif;
+        font-size: 20px;
+    }
+    .icons{
+        width: 60px;
+        display: inline-block;
+    }
+    .actiongo{
+        color: #000;
+        margin: 0;
+        line-height: 47px;
+        font-size: 22px;
+        display: inline-block;
+        margin-left: 19px;
+        text-align: center;
+    }
+    .withcaret:before {
+        content: "";
+        display: block;
+        background: url("../img/career_images/next.png") no-repeat;width: 80px;
+        height: 48px;
+        float: left;
+        margin: 0 10px 0 0;
+        background-size: cover;
+    }
+    .withcaret:after {
+        content: "";
+        display: block;
+        background: url("../img/career_images/next.png") no-repeat;width: 80px;
+        height: 48px;
+        float: right;
+        margin: 0 10px 0 0;
+        background-size: cover;
+    }
+}
+@media only screen and (max-width: 639px) { 
+    .tasklistitem{
+        position: relative;
+        padding: 0;
+        width: 340px;;
+    }
+    .tag{
+        width: 245px;
+        display: inline-block;
+    }
+    .icons{
+        width: 35px;
+        display: inline-block;
+    }
+    .tasklistitem span{
+        position: absolute;
+        left: 0px;
+        top: -6px;
+        padding: 10px;
+        color: #000;
+        font-family: Impact, Charcoal, sans-serif;
+        font-size: 12px;
+    }
+    .actiongo{
+        color: #000;
+        margin: 0;line-height: 21px;
+        font-size: 16px;
+        display: inline-block;
+        margin-left: 19px;
+        text-align: center;
+    }
+    .withcaret:before {
+        content: "";
+        display: block;
+        background: url("../img/career_images/next.png") no-repeat;
+        width: 35px;
+        height: 21px;
+        float: left;
+        margin: 0 10px 0 0;
+        background-size: cover;
+    }
+    .withcaret:after {
+        content: "";
+        display: block;
+        background: url("../img/career_images/next.png") no-repeat;
+        width: 35px;
+        height: 21px;
+        float: right;
+        margin: 0 10px 0 0;
+        background-size: cover;
+    }
+}

@@ -237,7 +237,7 @@
                                 <div class="col-md-12 text-left">
                                     <table style="background-color: #fff; width: 100%;">
                                         <tr>
-                                            <td style="background-color: #A8D08D; padding-bottom: 2px; padding-left: 5px; padding-top: 2px;"><b>Personal Information</b></td>
+                                            <td style="background-color: #A8D08D; padding-bottom: 2px; padding-left: 5px; padding-top: 2px;"><b>Personal  Information</b></td>
                                         </tr>
 
                                         <tr>

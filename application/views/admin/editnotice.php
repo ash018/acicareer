@@ -47,6 +47,7 @@
                                 <div class="col-md-3"><label>File</label></div>    
                                 <div class="col-md-8">
                                     <input type="file" name="userfile" value="" id="user_file"/>
+                                <input type="hidden" name="NoticeFile" id="NoticeFile" value="<?php echo $row['NoticeFile'];?>">
                                 </div>    
                             </div>
                             <div class="col-md-12 form-group">

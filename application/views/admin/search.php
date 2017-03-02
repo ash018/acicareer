@@ -10,13 +10,13 @@
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
         <!-- Bootstrap css form cdn -->
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
         <!-- Font awesome css -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/progres.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/animate.css">
-        <link rel="stylesheet" href="<?php echo base_url();?>assets/sweetalert/dist/sweetalert.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/sweetalert/dist/sweetalert.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/admin_style.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/responsive.css">
     </head>    
@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-md-3 col-md-offset-1">
                         <div class="logo">
-                            <a href="<?php echo base_url();?>admin/postjob"><img src="<?php echo base_url(); ?>assets/img/logo_3.png" alt="" /></a>   
+                            <a href="<?php echo base_url(); ?>admin/postjob"><img src="<?php echo base_url(); ?>assets/img/logo_3.png" alt="" /></a>   
                         </div>
                         <div class="mobile_nave_bar">
                             <span style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fa fa-bars"></i></span>  
@@ -36,7 +36,6 @@
                             <p>possibilities</p>
                         </div>
                     </div>
-
                     <div class="col-xs-12 col-md-4">
                         <div class="main_manu_title">
                             <p>Congratulations. You are authorized <a href="<?php echo base_url(); ?>admin/postjob/joblist">SUPER ADMIN</a></p>
@@ -46,11 +45,11 @@
                         <div class="main_manu_icon">
                             <img src="<?php echo base_url(); ?>assets/img/bell.png" alt="" />
                             <img src="<?php echo base_url(); ?>assets/img/envalap.png" alt="" />
-                            <?php if($this->session->userdata('is_log_admin') == TRUE):?>                   
-                                <a href="<?php echo base_url();?>admin/adminlogin/logout"><img src="<?php echo base_url(); ?>assets/img/off.png" alt="" /></a>
-                            <?php else:?>
-                                <a href="<?php echo base_url();?>admin/adminlogin/"><img src="<?php echo base_url(); ?>assets/img/login.png" alt="" /></a>
-                            <?php endif;?>
+                            <?php if ($this->session->userdata('is_log_admin') == TRUE): ?>                   
+                                <a href="<?php echo base_url(); ?>admin/adminlogin/logout"><img src="<?php echo base_url(); ?>assets/img/off.png" alt="" /></a>
+                            <?php else: ?>
+                                <a href="<?php echo base_url(); ?>admin/adminlogin/"><img src="<?php echo base_url(); ?>assets/img/login.png" alt="" /></a>
+                            <?php endif; ?>
                         </div>
                     </div>                      
                 </div>
@@ -65,28 +64,28 @@
                         <div class="quick_area">
                             <div class="row">
                                 <div class="col-md-2">
-                                        <div class="single_quick">
-                                                <?php if($page == 'filterOneAction'){$QuickFilters = 'single_quick_filter_active';}else{$QuickFilters = 'single_quick_filter';}?>
-                                                <div class="<?php echo $QuickFilters;?>" id="QuickFilters">
-                                                        <p>Quick Filters</p>
-                                                </div>
-                                                <?php if($page == 'advancefilter'){$advancefilter = 'single_quick_filter_active';}else{$advancefilter = 'single_quick_filter';}?>
-                                                <div class="<?php echo $advancefilter;?>" id="Academic">
-                                                        <p>Advanced Filter</p>
-                                                </div>
-                                                <?php if($page == 'experience'){$experience = 'single_quick_filter_active';}else{$experience = 'single_quick_filter';}?>
-                                                <div class="<?php echo $experience;?>" id="Experience">
-                                                        <p>Experience</p>
-                                                </div>
-                                                <?php if($page == 'filterRecommendation'){$classname = 'single_quick_filter_active';}else{$classname = 'single_quick_filter';}?>
-                                                <div class="<?php echo $classname;?>" id="Recommendation">
-                                                        <p>Recommendation</p>
-                                                </div>
-                                                <?php if($page == 'filterInternship'){$filterInternship = 'single_quick_filter_active';}else{$filterInternship = 'single_quick_filter';}?>
-                                                <div class="<?php echo $filterInternship;?>" id="Internship">
-                                                        <p>Internship</p>
-                                                </div>
+                                    <div class="single_quick">
+                                        <?php if($page == 'filterOneAction'){$QuickFilters = 'single_quick_filter_active';}else{$QuickFilters = 'single_quick_filter';}?>
+                                        <div class="<?php echo $QuickFilters;?>" id="QuickFilters">
+                                            <p>Quick Filters</p>
                                         </div>
+                                        <?php if($page == 'advancefilter'){$advancefilter = 'single_quick_filter_active';}else{$advancefilter = 'single_quick_filter';}?>
+                                        <div class="<?php echo $advancefilter;?>" id="Academic">
+                                            <p>Advanced Filter</p>
+                                        </div>
+                                        <?php if($page == 'experience'){$experience = 'single_quick_filter_active';}else{$experience = 'single_quick_filter';}?>
+                                        <div class="<?php echo $experience;?>" id="Experience">
+                                            <p>Experience</p>
+                                        </div>
+                                        <?php if($page == 'filterRecommendation'){$classname = 'single_quick_filter_active';}else{$classname = 'single_quick_filter';}?>
+                                        <div class="<?php echo $classname;?>" id="Recommendation">
+                                            <p>Recommendation</p>
+                                        </div>
+                                        <?php if($page == 'filterInternship'){$filterInternship = 'single_quick_filter_active';}else{$filterInternship = 'single_quick_filter';}?>
+                                        <div class="<?php echo $filterInternship;?>" id="Internship">
+                                            <p>Internship</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-10">
                                     <!-- Filter option1 -->
@@ -94,180 +93,176 @@
                                         <?php if($page == 'filterOneAction'){$QuickFilters = '';}else{$QuickFilters = 'style="display:none;"';}?>
                                         <div class="qukic_box" id="QuickFilters_form" <?php echo $QuickFilters;?>>
                                             <div class="single_quick_left">
-                                                    <div class="single_quick_input">
-                                                            <input type="text" name="UserName" placeholder="Name of applicant"/>
-                                                    </div>                                            
-                                                    <div class="single_quick_input">
-                                                            <input style="width:130px;" type="text" name="ExpectedSalaryFrom" placeholder="Min Salary"/>
-                                                            &nbsp;&nbsp;<font style="color:#fff;">To</font>&nbsp;&nbsp;
-                                                            <input style="width:130px;" type="text" name="ExpectedSalaryTo" placeholder="Max Salary"/>
-                                                    </div><Br>
-                                                    <div class="single_quick_input">
-                                                            <!--<input type="text" name="JobTitel" placeholder="Job Title"/>-->
-                                                            <select name="JobTitel" id="JobTitel" class="form-control">
-                                                                    <option value="">Select Job Title</option>
-                                                                    <?php foreach($jobtitle as $jt){ ?>
-                                                                            <option><?php print $jt['JobTitel']; ?></option>
-                                                                    <?php } ?>
-                                                            </select>
-                                                    </div>
-                                                    <div class="single_quick_input">
-                                                            <input type="text" name="applicantlocation" placeholder="Applicant Location"/>													
-                                                    </div>
+                                                <div class="single_quick_input">
+                                                    <input type="text" name="UserName" placeholder="Name of applicant"/>
+                                                </div>                                            
+                                                <div class="single_quick_input">
+                                                    <input style="width:130px;" type="text" name="ExpectedSalaryFrom" placeholder="Min Salary"/>
+                                                    &nbsp;&nbsp;<font style="color:#fff;">To</font>&nbsp;&nbsp;
+                                                    <input style="width:130px;" type="text" name="ExpectedSalaryTo" placeholder="Max Salary"/>
+                                                </div><Br>
+                                                <div class="single_quick_input">
+                                                    <!--<input type="text" name="JobTitel" placeholder="Job Title"/>-->
+                                                    <select name="JobTitel" id="JobTitel" class="form-control">
+                                                        <option value="">Select Job Title</option>
+                                                        <?php foreach($jobtitle as $jt){ ?>
+                                                                <option><?php print $jt['JobTitel']; ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                                <div class="single_quick_input">
+                                                    <input type="text" name="applicantlocation" placeholder="Applicant Location"/>													
+                                                </div>
                                             </div>
                                             <div class="single_quick_right">
-                                                    <input type="text" name="AgeFrom" placeholder="Age from"/>
-                                                    <input type="text" name="AgeTo" placeholder="Age to"/>
-                                                    <div class="single_quick_age">
-                                                            <h3>Gender</h3>
-                                                            <div class="checkbox">
-                                                                    <label><input type="radio" name="Gender" value="Male">Male</label>
-                                                                    <label><input type="radio" name="Gender" value="Female">Female</label>
-                                                                    <label><input type="radio" name="Gender" value="">Both</label>
-                                                            </div>
+                                                <input type="text" name="AgeFrom" placeholder="Age from"/>
+                                                <input type="text" name="AgeTo" placeholder="Age to"/>
+                                                <div class="single_quick_age">
+                                                    <h3>Gender</h3>
+                                                    <div class="checkbox">
+                                                        <label><input type="radio" name="Gender" value="Male">Male</label>
+                                                        <label><input type="radio" name="Gender" value="Female">Female</label>
+                                                        <label><input type="radio" name="Gender" value="">Both</label>
                                                     </div>
-                                                    <div class="single_quick_age">
-                                                            <h3>Job Level</h3>
-                                                            <div class="checkbox">
-                                                                    <label><input type="radio" name="JobLevel" value="2">Entry</label>
-                                                                    <label><input type="radio" name="JobLevel" value="3">Mid</label>
-                                                                    <label><input type="radio" name="JobLevel" value="4">Top</label>
-                                                            </div>                                                
-                                                    </div>
-                                                    <input class="sarch_btn" type="submit" name="submit" value="Submit">
+                                                </div>
+                                                <div class="single_quick_age">
+                                                    <h3>Job Level</h3>
+                                                    <div class="checkbox">
+                                                        <label><input type="radio" name="JobLevel" value="2">Entry</label>
+                                                        <label><input type="radio" name="JobLevel" value="3">Mid</label>
+                                                        <label><input type="radio" name="JobLevel" value="4">Top</label>
+                                                    </div>                                                
+                                                </div>
+                                                <input class="sarch_btn" type="submit" name="submit" value="Submit">
                                             </div>
-                                    </div>
-                            </form>
+                                        </div>
+                                    </form>
                                 
-                                <form action="<?php echo base_url('admin/Resume/advancefilter');?>" method="post">                                
+                                    <form action="<?php echo base_url('admin/Resume/advancefilter');?>" method="post">                                
                                         <?php if($page == 'advancefilter'){$advancefilter = '';}else{$advancefilter = 'style="display:none;"';}?>
                                         <div class="qukic_box" id="Academic_form" <?php echo $advancefilter;?>>
-                                                <div class="single_quick_left">
-                                                        <div class="single_quick_input_two">
-                                                                <!--<input type="text" placeholder="Minimum Level of Degree" name="MinimumLevelofDegree" id="MinimumLevelofDegree" />-->
-                                                                <select name="MinimumLevelofDegree" class="form-control">
-                                                                        <option value="">Select Minimum Level of Degree</option>
-                                                                        <?php echo isset($row->EducationLevel) ? select_option_selected('LEducationLevel', 'Id', 'EducationLevel', 'EducationLevel') : select_option('LEducationLevel', 'Id', 'EducationLevel'); ?>
-                                                                </select>
-                                                        </div>
-                                                        <div class="single_quick_input_two margin-top">
-                                                                <!--<input type="text" placeholder="Major Subject" id="MejorSubject" name="MejorSubject" />-->
-                                                                <select name="MejorSubject" class="form-control">
-                                                                        <option value="">Major/Concentration </option>
-                                                                        <?php echo isset($row->Faculty) ? select_option_selected('LFaculty', 'Id', 'FacultyName', 'Faculty') : select_option('LFaculty', 'Id', 'FacultyName'); ?>
-                                                                </select>
-                                                        </div>
-                                                        <div class="single_quick_input_two">
-                                                          <!--<input type="text" placeholder="Institute" name="Institute" id="Institute" />-->
-                                                                        <select name="Institute" id="Institute" class="form-control">
-                                                                        <option value="">Select University</option>
-                                                                        <?php foreach($UniversityName as $uni){ ?>
-                                                                                <option><?php print $uni['InstituteName']; ?></option>
-                                                                        <?php } ?>
-                                                                </select>	
-                                                        </div>
+                                            <div class="single_quick_left">
+                                                <div class="single_quick_input_two">
+                                                    <!--<input type="text" placeholder="Minimum Level of Degree" name="MinimumLevelofDegree" id="MinimumLevelofDegree" />-->
+                                                    <select name="MinimumLevelofDegree" class="form-control">
+                                                        <option value="">Select Minimum Level of Degree</option>
+                                                        <?php echo isset($row->EducationLevel) ? select_option_selected('LEducationLevel', 'Id', 'EducationLevel', 'EducationLevel') : select_option('LEducationLevel', 'Id', 'EducationLevel'); ?>
+                                                    </select>
                                                 </div>
-                                                <div class="single_quick_right">
-                                                        <div class="single_quick_input_one">
-                                                                <!--<input type="text" placeholder="Course/Degree name" id="DegreeName" name="DegreeName" />-->
-                                                                <select name="DegreeName" class="form-control">
-                                                                        <option value="">Select Course/Degree name</option>
-                                                                        <?php echo isset($row->EducationLevel) ? select_option_selected('LEducationLevel', 'Id', 'EducationLevel', 'EducationLevel') : select_option('LEducationLevel', 'Id', 'EducationLevel'); ?>
-                                                                </select>
-                                                        </div>
-                                                        <div class="single_quick_input_one">
-                                                                <input type="text" placeholder="Result" id="Result" name="Result" />
-                                                        </div>
-                                                        <button class="sarch_btn_one">Search</button>
+                                                <div class="single_quick_input_two margin-top">
+                                                    <!--<input type="text" placeholder="Major Subject" id="MejorSubject" name="MejorSubject" />-->
+                                                    <select name="MejorSubject" class="form-control">
+                                                        <option value="">Major/Concentration </option>
+                                                        <?php echo isset($row->Faculty) ? select_option_selected('LFaculty', 'Id', 'FacultyName', 'Faculty') : select_option('LFaculty', 'Id', 'FacultyName'); ?>
+                                                    </select>
                                                 </div>
+                                                <div class="single_quick_input_two">
+                                                    <!--<input type="text" placeholder="Institute" name="Institute" id="Institute" />-->
+                                                    <select name="Institute" id="Institute" class="form-control">
+                                                        <option value="">Select University</option>
+                                                        <?php foreach($UniversityName as $uni){ ?>
+                                                                <option><?php print $uni['InstituteName']; ?></option>
+                                                        <?php } ?>
+                                                    </select>	
+                                                </div>
+                                            </div>
+                                            <div class="single_quick_right">
+                                                <div class="single_quick_input_one">
+                                                    <!--<input type="text" placeholder="Course/Degree name" id="DegreeName" name="DegreeName" />-->
+                                                    <select name="DegreeName" class="form-control">
+                                                        <option value="">Select Course/Degree name</option>
+                                                        <?php echo isset($row->EducationLevel) ? select_option_selected('LEducationLevel', 'Id', 'EducationLevel', 'EducationLevel') : select_option('LEducationLevel', 'Id', 'EducationLevel'); ?>
+                                                    </select>
+                                                </div>
+                                                <div class="single_quick_input_one">
+                                                    <input type="text" placeholder="Result" id="Result" name="Result" />
+                                                </div>
+                                                <button class="sarch_btn_one">Search</button>
+                                            </div>
                                         </div>
-                                </form>
-                                
-                                        <form action="<?php echo base_url('admin/Resume/experience');?>" method="post"> 
-                                                <?php if($page == 'experience'){$experience = '';}else{$experience = 'style="display:none;"';}?>
-                                                <div class="qukic_box" id="Experience_form" <?php echo $experience;?>>
-                                                        <div class="single_quick_left" style="height: 116px;">
-                                                                <h2>Experience level</h2>
-                                                                <div class="single_quick_input_three">
-                                                                        <input type="text" placeholder="Any" id="ExperienceFrom" name="ExperienceFrom" />
-                                                                </div>
-                                                                <p>to</p>
-                                                                <div class="single_quick_input_fore">
-                                                                        <input type="text" placeholder="Any" id="ExperienceTo" name="ExperienceTo"/>
-                                                                </div>
-                                                                <div class="single_quick_input_two">
-                                                                        <select name="InstituteName" id="InstituteName" class="form-control">
-                                                                                <option value="">Select Institute</option>
-                                                                                <?php foreach($CompanyName as $company){ ?>
-                                                                                        <option><?php print $company['CompanyName']; ?></option>
-                                                                                <?php } ?>
-                                                                        </select>
-
-                                                                </div>
-                                                        </div>
-                                                        <div class="single_quick_right">
-
-                                                                <button class="sarch_btn_five">Search</button>
-                                                        </div>
+                                    </form>                                
+                                    <form action="<?php echo base_url('admin/Resume/experience');?>" method="post"> 
+                                        <?php if($page == 'experience'){$experience = '';}else{$experience = 'style="display:none;"';}?>
+                                        <div class="qukic_box" id="Experience_form" <?php echo $experience;?>>
+                                            <div class="single_quick_left" style="height: 116px;">
+                                                <h2>Experience level</h2>
+                                                <div class="single_quick_input_three">
+                                                    <input type="text" placeholder="Any" id="ExperienceFrom" name="ExperienceFrom" />
                                                 </div>
-                                        </form>
+                                                <p>to</p>
+                                                <div class="single_quick_input_fore">
+                                                    <input type="text" placeholder="Any" id="ExperienceTo" name="ExperienceTo"/>
+                                                </div>
+                                                <div class="single_quick_input_two">
+                                                    <select name="InstituteName" id="InstituteName" class="form-control">
+                                                        <option value="">Select Institute</option>
+                                                        <?php foreach($CompanyName as $company){ ?>
+                                                                <option><?php print $company['CompanyName']; ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="single_quick_right">
+                                                <button class="sarch_btn_five">Search</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                     										
-									<!--New search option is included here  -->										
-                                        <form action="<?php echo base_url('admin/Resume/filterRecommendation');?>" method="post">
-                                                <?php if($page == 'filterRecommendation'){$filterRecommendation = '';}else{$filterRecommendation = 'style="display:none;"';}?>
-                                                <div class="qukic_box" id="Recommendation_form" <?php echo $filterRecommendation;?>>
-                                                        <div class="single_quick_left" style="height: 216px;">
-                                                                <h2>Business Team</h2>
-                                                                        <div class="single_quick_input_two margin-top">
-                                                                        <Select name="Recommendation" id="Recommendation">
-                                                                                <?php select_option_business('Business','Business','BusinessName');?>	
-                                                                        </select>													  
-                                                                </div>                                            
-                                                        </div>
-                                                        <div class="single_quick_right">                                            
-                                                                <button class="sarch_btn_one">Search</button>
-                                                        </div><br>
+                                    <!--New search option is included here  -->										
+                                    <form action="<?php echo base_url('admin/Resume/filterRecommendation');?>" method="post">
+                                        <?php if($page == 'filterRecommendation'){$filterRecommendation = '';}else{$filterRecommendation = 'style="display:none;"';}?>
+                                        <div class="qukic_box" id="Recommendation_form" <?php echo $filterRecommendation;?>>
+                                            <div class="single_quick_left" style="height: 216px;">
+                                                <h2>Business Team</h2>
+                                                    <div class="single_quick_input_two margin-top">
+                                                    <Select name="Recommendation" id="Recommendation">
+                                                        <?php select_option_business('Business','Business','BusinessName');?>	
+                                                    </select>													  
+                                                </div>                                            
+                                            </div>
+                                            <div class="single_quick_right">                                            
+                                                <button class="sarch_btn_one">Search</button>
+                                            </div>
+                                        </div>
+                                    </form>										
+                                    <form action="<?php echo base_url('admin/Resume/filterInternship');?>" method="post">
+                                        <?php if($page == 'filterInternship'){$filterInternships = 'single_quick_filter_active';}else{$filterInternships = 'style="display:none;"';}?>
+                                        <div class="qukic_box" id="Internship_form" <?php echo $filterInternships;?>>
+                                            <div class="single_quick_left">
+                                                <div class="single_quick_input_two">
+                                                    <input type="text" name="universityname" id="universityname" placeholder="University Name"/>
                                                 </div>
-                                        </form>
-										
-                                        <form action="<?php echo base_url('admin/Resume/filterInternship');?>" method="post">
-                                                <?php if($page == 'filterInternship'){$filterInternships = 'single_quick_filter_active';}else{$filterInternships = 'style="display:none;"';}?>
-                                                <div class="qukic_box" id="Internship_form" <?php echo $filterInternships;?>>
-                                                        <div class="single_quick_left">
-                                                                <div class="single_quick_input_two">
-                                                                        <input type="text" name="universityname" id="universityname" placeholder="University Name"/>
-                                                                </div>
-                                                                <div class="single_quick_input_two margin-top">
-                                                                        <input type="text" name="grade" id="grade" placeholder="Grade"/>
-                                                                </div>
-                                                                <div class="single_quick_input_two" style="height: 116px;">
-                                                                        <font style="color:#fff;">Month</font>
-                                                                        <select name="fromMonth" class="form-control">
-                                                                                        <option value=""></option>
-                                                                                        <?php
-                                                                                                for ($i = 12; $i > 0; $i--) {
-                                                                                                        $timestamp = mktime(0, 0, 0, date('n') - $i, 1);
-                                                                                                        echo'<option value="'.date('F', $timestamp).'">'.date('F', $timestamp).'</option>'; 
-                                                                                                }
-                                                                                        ?> 
-                                                                        </select>
-                                                                        <font style="color:#fff;">To</font>
-                                                                        <select name="toMonth" class="form-control">															
-                                                                                <option value=""></option>
-                                                                                <?php
-                                                                                        for ($i = 12; $i > 0; $i--) {
-                                                                                                $timestamp = mktime(0, 0, 0, date('n') - $i, 1);
-                                                                                                echo'<option value="'.date('F', $timestamp).'">'.date('F', $timestamp).'</option>'; 
-                                                                                        }
-                                                                                ?>
-                                                                        </select>	
-                                                                </div>
-                                                        </div>
-                                                        <div class="single_quick_right">                                            
-                                                                <button class="sarch_btn_one">Search</button>
-                                                        </div>
+                                                <div class="single_quick_input_two margin-top">
+                                                    <input type="text" name="grade" id="grade" placeholder="Grade"/>
                                                 </div>
-                                        </form>                                    
+                                                <div class="single_quick_input_two" style="height: 116px;">
+                                                    <font style="color:#fff;">Month</font>
+                                                    <select name="fromMonth" class="form-control">
+                                                        <option value=""></option>
+                                                        <?php
+                                                            for ($i = 12; $i > 0; $i--) {
+                                                                $timestamp = mktime(0, 0, 0, date('n') - $i, 1);
+                                                                echo'<option value="'.date('F', $timestamp).'">'.date('F', $timestamp).'</option>'; 
+                                                            }
+                                                        ?> 
+                                                    </select>
+                                                    <font style="color:#fff;">To</font>
+                                                    <select name="toMonth" class="form-control">															
+                                                            <option value=""></option>
+                                                            <?php
+                                                            for ($i = 12; $i > 0; $i--) {
+                                                                    $timestamp = mktime(0, 0, 0, date('n') - $i, 1);
+                                                                    echo'<option value="'.date('F', $timestamp).'">'.date('F', $timestamp).'</option>'; 
+                                                            }
+                                                            ?>
+                                                    </select>	
+                                                </div>
+                                            </div>
+                                            <div class="single_quick_right">                                            
+                                                <button class="sarch_btn_one">Search</button>
+                                            </div>
+                                        </div>
+                                    </form>                                    
                                 </div>
                             </div>
                         </div>
@@ -275,10 +270,8 @@
                 </div>
             </div>
         </section>
-
-
-		<!-- First Summary display  -->
-		<?php //echo count($shortlist);echo '<pre/>';print_r($AllResume);?>
+        <!-- First Summary display  -->
+        <?php //echo count($shortlist);echo '<pre/>';print_r($AllResume);?>
         <section>
             <div class="container">
                 <div class="row">
@@ -376,33 +369,44 @@
                                         <div class="single_details">
                                             <ul>
                                                 <li><?php echo $row['ExpectedSalary']; ?></li>
-                                                <li><?php echo "Not Viewed"; ?></li>
+                                                <li>
+                                                    <?php
+                                                        $sl = '';
+                                                        switch ($row['ShortList']) {
+                                                           case 1:
+                                                               $sl = 'ShortListed'; 
+                                                                break;
+                                                            case 2:
+                                                               $sl = 'Deleted'; 
+                                                            break;
+                                                            case 3:
+                                                               $sl = 'Viewed'; 
+                                                            break;
+                                                            case 4:
+                                                               $sl = 'Recommended'; 
+                                                            break;
+                                                        }
+                                                    ?>
+                                                    <span id="ShortListedName<?php echo $row['UserId'];?>"><?php echo $sl;?></span>
+                                                </li>
                                                 <li>													  
-                                                    <Select name="Recommendation" id="Business<?php echo $row['UserId']; ?>">
+                                                    <select name="Recommendation" id="Business<?php echo $row['UserId']; ?>">
                                                     <option value="">Select</option>   
                                                     <?php select_option_business('Business','Business','BusinessName');?>                                      
-                                                    </Select>
+                                                    </select>
                                                 </li>
                                                 <li><?php echo $row['InstituteName']; ?></li>	
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="single_icon" id="message_approve_shortlist<?php echo $row['PostId'];?><?php echo $row['UserId'];?>">
-                                            <?php echo $row['ShortList'];//if($row['ShortList']==0){?>
-                                            <?php if($row['ShortList']==1){?>
-                                                <a href="javascript:;" onclick="already_approve_shortlist('Shortlisted')"><i class="fa fa-check check_done"></i></a>
-                                            <?php }else{ ?>
-                                                <a href="javascript:;" onclick="approve_shortlist('<?php echo $row['UserId'];?>','<?php echo $row['PostId'];?>','1')"><i class="fa fa-check"></i></a>
-                                            <?php } ?>
-                                            <?php if($row['ShortList']==2){?>
-                                                <a href="javascript:;" onclick="already_approve_shortlist('Deleted')"><i class="fa fa-times check_done"></i></a>
-                                            <?php }else{ ?>
-                                                <a href="javascript:;" onclick="approve_shortlist('<?php echo $row['UserId'];?>','<?php echo $row['PostId'];?>','2')"><i class="fa fa-times"></i></a>
-                                            <?php } ?>
-                                            <a href="<?php echo base_url(); ?>admin/resume/resumeDetails/<?php echo $row['UserId'];?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                            <a href="javascript:;" onclick="approve_recommendation('<?php echo $row['UserId'];?>','<?php echo $row['PostId'];?>','1')"><i class="fa fa-thumbs-o-up"></i></a>
-                                            <?php //} ?>
+                                        <div class="single_icon" id="message_approve_shortlist<?php echo $row['PostId'];?><?php echo $row['UserId'];?>">                                       
+                                            <?php if($row['ShortList']==1){$cd1 = 'check_done';}else{$cd1 = '';}?>
+                                                <a href="javascript:;" onclick="approve_shortlist('<?php echo $row['UserId'];?>','<?php echo $row['PostId'];?>','1')"><i  id="check_done1<?php echo $row['UserId'].$row['PostId'];?>" class="fa fa-check <?php echo $cd1;?>"></i></a>
+                                            <?php if($row['ShortList']==2){$cd2 = 'check_done';}else{$cd2 = '';}?>
+                                                <a href="javascript:;" onclick="approve_shortlist('<?php echo $row['UserId'];?>','<?php echo $row['PostId'];?>','2')"><i id="check_done2<?php echo $row['UserId'].$row['PostId'];?>" class="fa fa-times <?php echo $cd2;?>"></i></a>                               
+                                                <a href="javascript:;" onclick="cv_view('<?php echo $row['UserId'];?>','<?php echo $row['PostId'];?>','1')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                <a href="javascript:;" onclick="approve_recommendation('<?php echo $row['UserId'];?>','<?php echo $row['PostId'];?>','1')"><i class="fa fa-thumbs-o-up"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -478,7 +482,7 @@
                     <div class="col-md-5 col-md-offset-1">
                         <div class="footer-widget">
                             <ul>                
-                                <li><a href="">Privecy policy</a></li>
+                                <li><a href="">Privacy policy</a></li>
                                 <li><a href="">Sitemap</a></li>
                                 <li><a href="">Contact us</a></li>                           
                             </ul>
@@ -486,12 +490,11 @@
                     </div>
                 </div>
             </div>
-        </footer>
-        
+        </footer>        
         <!-- jQuery form CDN -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Bootstrap form CDN -->
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
         <!-- jQuery sticky -->
         <script type="text/javascript" src="<?php echo base_url();?>assets/sweetalert/dist/sweetalert-dev.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/jquery.sticky.js"></script>
@@ -504,6 +507,147 @@
         <script src="<?php echo base_url(); ?>assets/js/admin_main.js"></script>
         <!-- jQuery barfiller script -->
         <script src="<?php echo base_url(); ?>assets/js/jquery.barfiller.js"></script>
+        
+        <script>
+        function cv_view(UserId,PostId,ViewList) {
+             var dataString = "PostId=" + PostId +
+                    "&UserId=" + UserId +
+                    "&ViewList=" + ViewList +
+                    "&action=view";
+                    console.log(dataString);//return false;
+                    jQuery.ajax({  
+                        type: "POST",  
+                        url: "<?php echo base_url();?>admin/search/cv_view",  
+                        data: dataString,
+                        beforeSend: function() 
+                        {
+                            jQuery("#display_approve_loading"+PostId+UserId).show();
+                            jQuery("#display_approve_loading"+PostId+UserId).html('<img src="<?php echo base_url();?>assets/images/loading.gif" align="absmiddle" alt="Loading..."> Receiving...');
+                        },  
+                        success: function(html)
+                        {
+//                            window.location = html.url;
+                            window.open(html.url,'_blank');
+                        }
+                    }); 
+        }
+        function approve_shortlist(UserId,PostId,ShortList){        
+            if(UserId == "" && PostId == ""){alert("Please write Return quantity.");return false;}
+		
+                if(PostId != "")
+                {
+                    var shli;
+                    switch(parseInt(ShortList)) {
+                        case 1:
+                            shli = "ShortListed";
+                            break;
+                        case 2:
+                            shli = "Deleted";
+                            break;
+                        case 3:
+                            shli = "Viewed";
+                            break;
+                        case 4:
+                            shli = "Recommended";
+                            break;
+                    }
+                    console.log(ShortList); console.log(shli);
+                    var dataString = "PostId=" + PostId +
+                    "&UserId=" + UserId +
+                    "&ShortList=" + ShortList +
+                    "&action=approve";
+                    console.log(dataString);//return false;
+                    jQuery.ajax({  
+                        type: "POST",  
+                        url: "<?php echo base_url();?>admin/search/approveShortList",  
+                        data: dataString,
+                        beforeSend: function() 
+                        {
+                            jQuery("#display_approve_loading"+PostId+UserId).show();
+                            jQuery("#display_approve_loading"+PostId+UserId).html('<img src="<?php echo base_url();?>assets/images/loading.gif" align="absmiddle" alt="Loading..."> Receiving...');
+                        },  
+                        success: function(html)
+                        {
+                            jQuery("#display_approve_loading"+PostId+UserId).hide();
+                            //jQuery("#message_approve_shortlist"+PostId+UserId).hide();                 
+                            var TShortList = jQuery("#TShortList").text();
+                            console.log(TShortList);
+                            var tsl = parseInt(TShortList)+1;
+                            console.log(tsl);
+                            jQuery("#TShortList").text(tsl);                            
+                            if(html.st === 0){
+                                swal({
+                                    title: "Oops...",
+                                    text: "This CV is already in "+ html.msg +". Please choose another CV!!!!",
+                                    type: "error",
+                                    confirmButtonText: "Try Again"
+                                });
+                            }
+                            if(html.st === 1){
+                                swal({
+                                    title: "Success",
+                                    text: html.msg,
+                                    type: "success",
+                                    confirmButtonText: "OK"
+                                });
+                            }
+                            $("#check_done1"+UserId+PostId).removeClass("check_done");
+                            $("#check_done2"+UserId+PostId).removeClass("check_done");
+                            $("#check_done"+ShortList+UserId+PostId).addClass("check_done");
+                            $("#ShortListedName"+UserId).html(shli);
+                        }
+                    }); 
+                }
+                else 
+                {
+                    alert("Sorry, we could not verify the identity of the post you have just clicked. Please try again or contact the site admin if this problem persist. Thanks...");
+                }
+        }
+        </script>
+        
+        <script>
+        function approve_recommendation(UserId,PostId,Recommendation){ 
+            var Business = jQuery("#Business"+UserId).val();
+            //console.log(Business);return false;
+            if(UserId == "" && PostId == ""){alert("Please write Return quantity.");return false;}
+                if(PostId != "")
+                {
+                    var dataString = "PostId=" + PostId +
+                    "&UserId=" + UserId +
+                    "&Recommendation=" + Recommendation +
+                    "&Business=" + Business +
+                    "&action=approve";
+                    console.log(dataString);//return false;
+                    jQuery.ajax({  
+                        type: "POST",  
+                        url: "<?php echo base_url();?>admin/search/approveRecommendation",  
+                        data: dataString,
+                        beforeSend: function() 
+                        {
+                            jQuery("#display_approve_loading"+PostId+UserId).show();
+                            jQuery("#display_approve_loading"+PostId+UserId).html('<img src="<?php echo base_url();?>assets/images/loading.gif" align="absmiddle" alt="Loading..."> Receiving...');
+                        },  
+                        success: function(html)
+                        {
+                            jQuery("#display_approve_loading"+PostId+UserId).hide();
+                            //jQuery("#message_approve_shortlist"+PostId+UserId).hide();
+                            if(html.st === 1){
+                                swal({
+                                    title: "Success",
+                                    text: html.msg,
+                                    type: "success",
+                                    confirmButtonText: "OK"
+                                });
+                            }
+                        }
+                    }); 
+                }
+                else 
+                {
+                    alert("Sorry, we could not verify the identity of the post you have just clicked. Please try again or contact the site admin if this problem persist. Thanks...");
+                }
+            }
+        </script>
         <script>
         $(document).ready(function () {
             $("#QuickFilters").click(function () {
@@ -612,90 +756,6 @@
                 $("#Internship_form").show();
             });			
         });
-        </script>
-        <script>
-        function already_approve_shortlist(sl) {
-            swal({
-               title: "Oops...",
-               text: "This CV is already in "+ sl +". Please choose another CV!!!!",
-               type: "error",
-               confirmButtonText: "Try Again"
-             });
-        }
-        function approve_shortlist(UserId,PostId,ShortList){        
-            if(UserId == "" && PostId == ""){alert("Please write Return quantity.");return false;}
-		
-                if(PostId != "")
-                {
-                    var dataString = "PostId=" + PostId +
-                    "&UserId=" + UserId +
-                    "&ShortList=" + ShortList +
-                    "&action=approve";
-                    console.log(dataString);//return false;
-                    jQuery.ajax({  
-                        type: "POST",  
-                        url: "<?php echo base_url();?>admin/search/approveShortList",  
-                        data: dataString,
-                        beforeSend: function() 
-                        {
-                            jQuery("#display_approve_loading"+PostId+UserId).show();
-                            jQuery("#display_approve_loading"+PostId+UserId).html('<img src="<?php echo base_url();?>assets/images/loading.gif" align="absmiddle" alt="Loading..."> Receiving...');
-                        },  
-                        success: function(response)
-                        {
-                            jQuery("#display_approve_loading"+PostId+UserId).hide();
-                            jQuery("#message_approve_shortlist"+PostId+UserId).hide();
-
-                            var TShortList = jQuery("#TShortList").text();
-                            console.log(TShortList);
-                            var tsl = parseInt(TShortList)+1;
-                            console.log(tsl);
-                            jQuery("#TShortList").text(tsl);						
-                        }
-                    }); 
-                }
-                else 
-                {
-                    alert("Sorry, we could not verify the identity of the post you have just clicked. Please try again or contact the site admin if this problem persist. Thanks...");
-                }
-        }
-        </script>
-        
-        <script>
-        function approve_recommendation(UserId,PostId,Recommendation){ 
-            var Business = jQuery("#Business"+UserId).val();
-            //console.log(Business);return false;
-            if(UserId == "" && PostId == ""){alert("Please write Return quantity.");return false;}
-                if(PostId != "")
-                {
-                    var dataString = "PostId=" + PostId +
-                    "&UserId=" + UserId +
-                    "&Recommendation=" + Recommendation +
-                    "&Business=" + Business +
-                    "&action=approve";
-                    console.log(dataString);//return false;
-                    jQuery.ajax({  
-                        type: "POST",  
-                        url: "<?php echo base_url();?>admin/search/approveRecommendation",  
-                        data: dataString,
-                        beforeSend: function() 
-                        {
-                            jQuery("#display_approve_loading"+PostId+UserId).show();
-                            jQuery("#display_approve_loading"+PostId+UserId).html('<img src="<?php echo base_url();?>assets/images/loading.gif" align="absmiddle" alt="Loading..."> Receiving...');
-                        },  
-                        success: function(response)
-                        {
-                            jQuery("#display_approve_loading"+PostId+UserId).hide();
-                            jQuery("#message_approve_shortlist"+PostId+UserId).hide();
-							
-                        }
-                    }); 
-                }
-                else 
-                {
-                    alert("Sorry, we could not verify the identity of the post you have just clicked. Please try again or contact the site admin if this problem persist. Thanks...");
-                }
-            }
         </script>
     </body>
 </html>

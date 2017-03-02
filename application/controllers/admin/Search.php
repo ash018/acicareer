@@ -60,23 +60,92 @@ class Search extends CI_Controller {
         $this->load->view('admin/search', $data);
     }
     
-    public function approveShortList(){		
+    public function approveShortList(){	
+        $UserId = $this->input->post('UserId', TRUE);
+        $PostId = $this->input->post('PostId', TRUE);
+        $ShortList = $this->input->post('ShortList', TRUE);
+        $tracking_shortlist = $this->Common_m->duplicate_checking_shortlist_check($UserId,$PostId,$ShortList,'ShortList');
+        if (count($tracking_shortlist) == 1) {
+            switch ($ShortList) {
+                case 1:
+                    $msg['message'] = "Shortlist";
+                    break;
+                case 25:
+                    $msg['message'] = "Deleted";
+                    break;
+            }
+            $msg['message'] = "";
+            header('Content-type:application/json;charset=UTF-8');
+            echo json_encode(array('st'=>0,'msg'=>$msg['message']));
+            exit();
+        }        
         $data = array(
-            'UserId' => $this->input->post('UserId', TRUE),
-            'PostId' => $this->input->post('PostId', TRUE),
-            'ShortList' => $this->input->post('ShortList', TRUE)
-        );		
-        echo $RowId_q = $this->Common_m->insert($data,'ShortList');
-    }
-	
-    public function approveRecommendation(){
-        $data = array(
-            'UserId' => $this->input->post('UserId', TRUE),
-            'PostId' => $this->input->post('PostId', TRUE),
-            'Business' => $this->input->post('Business', TRUE),
-            'Recommendation' => $this->input->post('Recommendation', TRUE)
+            'UserId' => $UserId,
+            'PostId' => $PostId,
+            'ShortList' => $ShortList
         );
-        $RowId_q = $this->Common_m->insert($data,'Recommendation');
+        $tracking = $this->Common_m->duplicate_checking_shortlist($UserId,$PostId,'ShortList');
+        if (count($tracking) == 1) {
+            $this->Common_m->edit_option_shortlist($UserId,$PostId,$ShortList,'ShortList');
+            $msg['message'] = "CV list Successfully Updated";
+            header('Content-type:application/json;charset=UTF-8');
+            echo json_encode(array('st'=>1,'msg'=>$msg['message']));  
+        }else{
+            $RowId_q = $this->Common_m->insert($data,'ShortList');
+            $msg['message'] = "CV Successfully Listed";
+            header('Content-type:application/json;charset=UTF-8');
+            echo json_encode(array('st'=>1,'msg'=>$msg['message']));  
+        }
+    }
+    
+    public function cv_view(){
+        $UserId = $this->input->post('UserId', TRUE);
+        $PostId = $this->input->post('PostId', TRUE);
+        $ViewList = $this->input->post('ViewList', TRUE);
+        $data = array(
+            'UserId' => $UserId,
+            'PostId' => $PostId,
+            'ViewList' => $ViewList
+        );
+        $tracking = $this->Common_m->duplicate_checking_shortlist($UserId,$PostId,'ViewList');
+        if (count($tracking) == 1) {
+            $url = base_url('admin/resume/resumeDetails/'.$UserId);
+            header('Content-type:application/json;charset=UTF-8');
+            echo json_encode(array('st'=>1,'url'=>$url));  
+        }else{
+            $ViewList = $this->Common_m->insert($data,'ViewList');
+            if($ViewList){
+                $url = base_url('admin/resume/resumeDetails/'.$UserId);
+                header('Content-type:application/json;charset=UTF-8');
+                echo json_encode(array('st'=>1,'url'=>$url)); 
+            }
+        }        
+    }
+
+    public function approveRecommendation(){
+        $UserId = $this->input->post('UserId', TRUE);
+        $PostId = $this->input->post('PostId', TRUE);
+        $Recommendation = $this->input->post('Recommendation', TRUE);
+        $data = array(
+            'UserId' => $UserId,
+            'PostId' => $PostId,
+            'Business' => $this->input->post('Business', TRUE),
+            'Recommendation' => $Recommendation
+        );
+        $tracking = $this->Common_m->duplicate_checking_shortlist($UserId,$PostId,'Recommendation');
+        if (count($tracking) == 1) {
+            $this->Common_m->edit_option_shortlist($UserId,$PostId,$Recommendation,'Recommendation');
+            $msg['message'] = "CV Recommendation Successfully Updated";
+            header('Content-type:application/json;charset=UTF-8');
+            echo json_encode(array('st'=>1,'msg'=>$msg['message']));
+         }else{
+            $Recommendation = $this->Common_m->insert($data,'Recommendation');
+            if($Recommendation){
+                $msg['message'] = "CV Successfully Recommendation";
+                header('Content-type:application/json;charset=UTF-8');
+                echo json_encode(array('st'=>1,'msg'=>$msg['message']));   
+            }
+        }
     }
 }
 

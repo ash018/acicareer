@@ -7,23 +7,24 @@ class Resume extends CI_Controller {
         parent::__construct();
         check_admin_login();
         $this->load->model('Admin_m');
+        $this->load->model('Common_m');
     }
 
-    public function index() {
-        $data = array();
-        $data['page'] = 'resume';
-        $data['page_title'] = 'View Resume';        
-        $data['AllResume'] = $this->Admin_m->selectAppliedResume();        
-        $empcode = $this->session->userdata('EmpCode'); 
-        $data['userinfo'] = $this->Admin_m->userinfo($empcode);
-        $data['CompanyName'] = $this->Admin_m->CompanyName();
-       
-        
-        $data['adminmenubar'] = $this->load->view('inc/adminmenubar', $data, TRUE);
-        $data['main_content'] = $this->load->view('admin/all_resume', $data, TRUE);
-        
-        $this->load->view('admin/index', $data);
-    }
+//    public function index() {
+//        $data = array();
+//        $data['page'] = 'resume';
+//        $data['page_title'] = 'View Resume';        
+//        $data['AllResume'] = $this->Admin_m->selectAppliedResume();        
+//        $empcode = $this->session->userdata('EmpCode'); 
+//        $data['userinfo'] = $this->Admin_m->userinfo($empcode);
+//        $data['CompanyName'] = $this->Admin_m->CompanyName();
+//       
+//        
+//        $data['adminmenubar'] = $this->load->view('inc/adminmenubar', $data, TRUE);
+//        $data['main_content'] = $this->load->view('admin/all_resume', $data, TRUE);
+//        
+//        $this->load->view('admin/index', $data);
+//    }
     
     
     public function unshortlisted(){
@@ -120,7 +121,9 @@ class Resume extends CI_Controller {
         $data = array();
         $data['page'] = 'ResumeDetils';
         $data['page_title'] = 'Resume Detail';        
-        $data['resumeDetails'] = $this->Admin_m->selectResumeDetails($id);
+        //$data['resumeDetails'] = $this->Admin_m->selectResumeDetails($id);
+        $data['Myresume'] = $this->Common_m->selectMyresume($id);
+        $data['myresume_body'] = $this->load->view('admin/myresume_body', $data, TRUE);
         $empcode = $this->session->userdata('EmpCode'); 
         $data['userinfo'] = $this->Admin_m->userinfo($empcode);
         $data['CompanyName'] = $this->Admin_m->CompanyName(); 

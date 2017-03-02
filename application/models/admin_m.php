@@ -419,19 +419,19 @@ class Admin_m extends CI_Model {
     }
 	
 	public function InsertNotice($data) {
-         $NoticeName = $data['noticetitle'];
-         $NoticeDescription = $data['noticedescription'];
-         $NoticeDate = $data['noticedate'];
-         $Status = $data['noticestatus'];    
-         $file = $data['file'];    
+       $NoticeName = $data['noticetitle'];
+       $NoticeDescription = $data['noticedescription'];
+       $NoticeDate = $data['noticedate'];
+       $Status = $data['noticestatus'];    
+       $file = $data['file'];    
            
         $sql = "INSERT INTO Notice VALUES ('$NoticeName','$NoticeDescription','$NoticeDate','$Status','$file')"; 
         $query = $this->db->query($sql);
         return true;
-    }
+  }
     
 	function previousnotice(){		
-		$sql = "SELECT  NoticeId, LEFT (NoticeDescription, 70) as NoticeDescription,NoticeName,NoticeDate,Status FROM Notice";
+		$sql = "SELECT  NoticeId, LEFT (NoticeDescription, 70) as NoticeDescription,NoticeName,NoticeDate,Status,NoticeFile FROM Notice";
 		$query = $this->db->query($sql);
         if ($query) {
             return $query->result_array();
@@ -440,6 +440,7 @@ class Admin_m extends CI_Model {
         }    
 		
     }
+	
 	function deletenotice($NoticeId){		
 		$sql = "DELETE FROM Notice WHERE NoticeId=$NoticeId";
 		$query = $this->db->query($sql);
@@ -466,9 +467,10 @@ class Admin_m extends CI_Model {
          $NoticeName = $data['noticetitle'];
          $NoticeDescription = $data['noticedescription'];
          $NoticeDate = $data['noticedate'];
-         $Status = $data['noticestatus'];    
+         $Status = $data['noticestatus'];
+         $NoticeFile = $data['NoticeFile'];     
            
-         $sql = "Update Notice SET NoticeName='$NoticeName',NoticeDescription='$NoticeDescription',NoticeDate='$NoticeDate',Status='$Status' WHERE NoticeId=$NoticeId"; 
+         $sql = "Update Notice SET NoticeName='$NoticeName',NoticeDescription='$NoticeDescription',NoticeDate='$NoticeDate',Status='$Status', NoticeFile = '$NoticeFile' WHERE NoticeId=$NoticeId"; 
 		
         $query = $this->db->query($sql);
         return true;
@@ -521,15 +523,28 @@ class Admin_m extends CI_Model {
                 WHERE aa.row > $vpb_start_page AND aa.row <= $vpb_end_page ORDER BY aa.ApplicationDeadline DESC";
 	
         $query = $this->db->query($sql);
-        return $query->result_array();
+        $query = $query->result_array();
+        foreach ($query as $key => $value) {
+			
+			$sql5 = "SELECT  COUNT(UserId) AS Shortlisted FROM Shortlist Where PostId = '" . $value['PostId'] . "' ";
+            $query5 = $this->db->query($sql5);
+            $query5 = $query5->result_array();
+            $query[$key]['Shortlisted'] = $query5;
+			
+			$sql6 = "SELECT  COUNT(UserId) AS TotalView FROM ViewList Where PostId = '" . $value['PostId'] . "' ";
+            $query6 = $this->db->query($sql6);
+            $query6 = $query6->result_array();
+            $query[$key]['TotalView'] = $query6;
+		}
+        return $query;
     }
     
     
     function selectCVBankData($vpb_start_page,$vpb_page_limit){
         $vpb_end_page = $vpb_start_page+$vpb_page_limit;       
-        $sql = "SELECT *,DATEDIFF(MONTH,DOB,GETDATE())/12.0 AS Age FROM ( 
-            SELECT a.*,b.ReligionName, ROW_NUMBER() OVER (ORDER BY a.Id) as row 
-            FROM UserInfo a INNER JOIN LReligion b ON a.Religion = b.Id 
+        $sql = "SELECT Id AS UserId,*,DATEDIFF(MONTH,DOB,GETDATE())/12.0 AS Age,'67' AS PostId FROM ( 
+            SELECT a.*,b.ReligionName,c.ShortList, ROW_NUMBER() OVER (ORDER BY a.Id) as row 
+            FROM UserInfo a INNER JOIN LReligion b ON a.Religion = b.Id LEFT JOIN ShortList c ON a.Id = c.UserId 
         ) aa
         WHERE aa.row > $vpb_start_page and aa.row <= $vpb_end_page";
         $query = $this->db->query($sql);

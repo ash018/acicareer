@@ -279,6 +279,7 @@ class Common_m extends CI_Model {
     }
 
     //From Shakil
+
     function duplicate_checking($CustomerID, $field, $table) {
         $sql = "SELECT * FROM $table WHERE $field = '$CustomerID'";
         $query = $this->db->query($sql);
@@ -286,7 +287,28 @@ class Common_m extends CI_Model {
             return $query->result_array();
         }
     }
-
+    
+    function duplicate_checking_shortlist_check($UserId,$PostId,$ShortList,$table){
+        $sql = "SELECT TOP 1 * FROM $table WHERE UserId = '$UserId' AND PostId = '$PostId' AND ShortList = '$ShortList'";
+        $query = $this->db->query($sql);
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+    
+    function duplicate_checking_shortlist($UserId,$PostId,$table) {
+        $sql = "SELECT * FROM $table WHERE UserId = '$UserId' AND PostId = '$PostId'";
+        $query = $this->db->query($sql);
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+    
+    function edit_option_shortlist($UserId,$PostId,$ShortList,$table){
+        $sql = "UPDATE $table SET $table = '$ShortList' WHERE UserId = '$UserId' AND PostId = '$PostId'";
+        $query = $this->db->query($sql);
+    }
+    
     function duplicate_posting($data, $table) {
         $PostId = $data['PostId'];
         $UserId = $data['UserId'];

@@ -1,6 +1,9 @@
 <style>
+.table > caption + thead > tr:first-child > td, .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > td, .table > thead:first-child > tr:first-child > th {
+    border: 1px solid #999;
+}
 .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
-    border: 1px solid #333;
+    border: 1px solid #999;
 }
 table th {
     background-color: #00b2f7;
@@ -18,36 +21,36 @@ table th {
                 <div class="row">
                     <div class="col-md-12">
                     <button id="btn" class="btn btn-default" style="float: right;" onclick="myFunction()">Export to Excel</button>
-                        <table class="table table-bordered responsive" border="1">
+                        <table class="table table-bordered responsive">
                             <thead>
                                 <tr>
-                                    <th colspan="17" bgcolor="#FFFFFF" >
-                                       <font color="black"><center>ACI Limited<br />CV Summary</center> </font> 
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" colspan="17">
+                                       <font><center>ACI Limited<br />CV Summary</center> </font> 
                                     </th>
                                 </tr>
                                 <tr>
-                                    <th rowspan="2"><font color="white">No</font></th>
-                                    <th rowspan="2"><font color="white">Name</font></th>
-                                    <th rowspan="2"><font color="white">Email Id&nbsp;</font></th>
-                                    <th rowspan="2"><font color="white">Contact Number</font></th>
-                                    <th rowspan="2"><font color="white">Last Drawn/Current salary</font></th>
-                                    <th rowspan="2"><font color="white" >Expected salary</font></th>
-                                    <th colspan="4"><font color="white" >Education</font></th>
-                                    <th colspan="2"><font color="white">Training</font></th>
-                                    <th colspan="4"><font color="white">Experience (If any)</font></th>
-                                    <th rowspan="2"><font color="white">Remarks</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" rowspan="2"><font>No</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" rowspan="2"><font>Name</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" rowspan="2"><font>Email Id&nbsp;</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" rowspan="2"><font>Contact Number</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" rowspan="2"><font>Last Drawn/Current salary</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" rowspan="2"><font >Expected salary</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" colspan="4"><font >Education</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" colspan="2"><font>Training</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" colspan="4"><font>Experience (If any)</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;" rowspan="2"><font>Remarks</font></th>
                                 </tr>
                                 <tr>
-                                    <th><font color="white">Level &amp; Passing Year</font></th>
-                                    <th><font color="white">Institution</font></th>
-                                    <th style="min-width: 200px;"><font color="white">Major/<br />Concentration</font></th>
-                                    <th style="min-width: 150px;">Result</th>
-                                    <th><font color="white" style="min-width: 200px;">Title</font></th>
-                                    <th><font color="white">Institution</font></th>
-                                    <th><font color="white">Organization</font></th>
-                                    <th><font color="white">Designation</font></th>
-                                    <th><font color="white">Duration</font></th>
-                                    <th><font color="white">Total Experience</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;"><font>Level &amp; Passing Year</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;"><font>Institution</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999; min-width: 200px;"><font>Major/<br />Concentration</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999; min-width: 150px;">Result</th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;"><font style="min-width: 200px;">Title</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;"><font>Institution</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;"><font>Organization</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;"><font>Designation</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;"><font>Duration</font></th>
+                                    <th bgcolor="#00b2f7" style="border: 1px solid #999;"><font>Total Experience</font></th>
                                 </tr>
                             </thead>
                             <tbody>

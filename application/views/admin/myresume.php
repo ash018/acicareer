@@ -106,6 +106,7 @@
                             <table style="background-color: #fff; width: 100%;">
                                 <tr>
 										<td style="background-color: #e6e6e6; padding-bottom: 2px; padding-left: 2px; padding-top: 2px;"><b><u>Academic Qualification:</u></b></td>
+										<td style="background-color: #e6e6e6; padding-bottom: 2px; padding-left: 2px; padding-top: 2px;"><b><u>Academic Qualification:</u></b></td>
 									</tr>
                                 <tr>
 										<td height=20></td>

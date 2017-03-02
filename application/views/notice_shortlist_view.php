@@ -73,12 +73,12 @@
                                     <td><?php echo $row['NoticeDescription']; ?></td>
                                     <td><?php echo get_date_format($row['NoticeDate']); ?></td>
                                     <td>
-                                        <a href="<?php echo base_url(); ?>assets/notice_file/<?php echo $row['noticefile']; ?>" target="_blank">
+                                        <a href="<?php echo base_url(); ?>assets/notice_file/<?php echo $row['NoticeFile']; ?>" target="_blank">
                                             <?php
-                                            if (empty($row['noticefile'])) {
+                                            if (empty($row['NoticeFile'])) {
                                                 echo "";
                                             } else {
-                                                echo $row['noticefile'];
+                                                echo $row['NoticeFile'];
                                             }
                                             ?>								
                                         </a>

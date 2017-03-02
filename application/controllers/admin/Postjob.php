@@ -187,6 +187,24 @@ class Postjob extends CI_Controller {
         $this->load->view('admin/index', $data);
 
     }
+	
+	public function RePostJob($PostId){
+		$data['page'] = 'postjob';
+        $data['page_title'] = 'Edit Post Job';
+        
+        //echo $cvid; die();
+        $data['row'] = $this->admin_m->fiendJob($PostId);
+        $empcode = $this->session->userdata('EmpCode'); 
+        $data['userinfo'] = $this->admin_m->userinfo($empcode);
+           // print_r($empcode); exit();
+        $data['CurrentVacancy'] = $this->Common_m->current_vacancy();
+        
+        $data['adminmenubar'] = $this->load->view('inc/adminmenubar', $data, TRUE);
+        $data['main_content'] = $this->load->view('admin/postjob_repost', $data, TRUE);   
+        $data['ajax'] = $this->load->view('admin/ajax', $data, TRUE); 
+        $this->load->view('admin/index', $data);
+		
+	}
     public function updateJob(){
         $data['PostId'] = mssql_escape($this->input->post('PostId',TRUE));
         $data['Department'] = mssql_escape($this->input->post('Department',TRUE));

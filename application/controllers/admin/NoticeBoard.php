@@ -25,10 +25,11 @@ class NoticeBoard extends CI_Controller {
         $data['adminmenubar'] = $this->load->view('inc/adminmenubar', $data, TRUE);
         $data['previousnotice'] = $this->admin_m->previousnotice();
         $data['main_content'] = $this->load->view('admin/noticeBoard', $data, TRUE);
+        //print_r($data['previousnotice'] ); exit();
 
         $this->load->view('admin/index', $data);
     }
-
+   
     public function addnotice() {
         $data = array();
         $data['page'] = 'NoticeBoard';
@@ -39,6 +40,8 @@ class NoticeBoard extends CI_Controller {
         $data['adminmenubar'] = $this->load->view('inc/adminmenubar', $data, TRUE);
         $data['previousnotice'] = $this->admin_m->previousnotice();
         $data['main_content'] = $this->load->view('admin/newnoticeBoard', $data, TRUE);
+
+
         $this->load->view('admin/index', $data);
     }
 
@@ -64,18 +67,23 @@ class NoticeBoard extends CI_Controller {
         $data['noticedescription'] = $this->input->post('noticedescription');
         $data['noticedate'] = $this->input->post('noticedate');
         $data['noticestatus'] = $this->input->post('noticestatus');
-        //echo "<pre>";print_r($_POST);print_r($_FILES);exit();
+        $data['NoticeFile'] = $this->input->post('NoticeFile');
         if(!empty($_FILES['userfile']['name'])){
+    
+            
             $config['upload_path']          = './assets/notice_file/';
-            $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|xlsx';
+            $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|xlsx|doc|docx';
             $config['max_size']             = 2048000;          
             $this->load->library('upload', $config);
+
             if ($this->upload->do_upload()) {
                 $upload_data = $this->upload->data();
-                $data['file'] = $upload_data['file_name'];
+                $data['NoticeFile'] = $upload_data['file_name'];
+                 //echo "<pre>";print_r($data);exit();
             }
+
         }
-        //echo "<pre>";print_r($data);exit();
+       
         $result = $this->admin_m->UpdateNotice($data);
         $this->index(); 
     }

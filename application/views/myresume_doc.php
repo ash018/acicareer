@@ -142,7 +142,19 @@
                                                     <b><?php echo $edu['InstituteName']; ?> (<?php echo $edu['PassingYear']; ?>)</b><br>
                                                     <?php if($edu['IsForeignInstitute']==1){?><i style="color: #ED7D31;">Foreign institute</i><br><?php } ?>
                                                     <?php echo $edu['EducationLevel']; ?>&nbsp;(<?php echo $edu['Faculty']; ?>)<br>
-                                                    Result: <?php echo $edu['Result'].' '.$edu['QualificationAttained']; ?>
+                                                     Result: <?php
+                                                       if($edu['QualificationAttained']=='Division') {
+                                                           if($edu['Result']==1)
+                                                               echo $edu['Result'].'st  '.$edu['QualificationAttained'];
+                                                           if($edu['Result'] == 2)
+                                                               echo $edu['Result'].'nd  '.$edu['QualificationAttained'];
+                                                           if($edu['Result'] == 3)
+                                                               echo $edu['Result'].'rd  '.$edu['QualificationAttained'];
+                                                        }
+                                                       else{
+                                                        echo $edu['Result'].'Out of  '.$edu['QualificationAttained'];
+                                                       }
+                                                    ?>
                                                 </div>
                                             <?php $i ++;
                                             endforeach; ?>
@@ -171,12 +183,12 @@
                                                             <td width="15%" align="center" style="border-right:1px solid #666666"><strong>Taken year</strong></td>
                                                         </tr>
                                                         <?php $i = 1;
-                                                        foreach ($row['Education'] as $edu): ?>
+                                                        foreach ($row['Training'] as $edu): ?>
                                                         <tr>
-                                                            <td width="20%" align="center" style="border-right:1px solid #666666;border-top:1px solid #666666;"><?php echo $edu['EducationLevel']; ?></td>
-                                                            <td width="15%" align="center" style="border-right:1px solid #666666;border-top:1px solid #666666;"><?php echo $edu['Faculty']; ?></td>
-                                                            <td width="15%" align="center" style="border-right:1px solid #666666;border-top:1px solid #666666;"><?php echo $edu['InstituteName']; ?></td>
-                                                            <td width="15%" align="center" style="border-right:1px solid #666666;border-top:1px solid #666666;"><?php echo $edu['ResultName']; ?></td>
+                                                            <td width="20%" align="center" style="border-right:1px solid #666666;border-top:1px solid #666666;"><?php echo $edu['InstituteName']; ?></td>
+                                                            <td width="15%" align="center" style="border-right:1px solid #666666;border-top:1px solid #666666;"><?php echo $edu['TrainingTitle']; ?></td>
+                                                            <td width="15%" align="center" style="border-right:1px solid #666666;border-top:1px solid #666666;"><?php echo $edu['TopicsCovered']; ?></td>
+                                                            <td width="15%" align="center" style="border-right:1px solid #666666;border-top:1px solid #666666;"><?php echo $edu['TakenYear']; ?></td>
                                                         </tr>                                 
                                                         <?php $i ++;
                                                         endforeach; ?>
@@ -249,7 +261,11 @@
                                                     </tr>
                                                     <tr>
                                                         <td align="left" style="padding-left:5px;">
-                                                            <b>Permanent Address : </b>&nbsp;&nbsp;<?php echo $row['Gender']; ?></td>
+                                                            <b>Gender : </b>&nbsp;&nbsp;<?php echo $row['Gender']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" style="padding-left:5px;">
+                                                            <b>Permanent Address : </b>&nbsp;&nbsp;<?php echo $row['Add1']; ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" style="padding-left:5px;">
@@ -257,11 +273,15 @@
                                                     </tr>
                                                     <tr>
                                                         <td align="left" style="padding-left:5px;">
-                                                            <b>Marital Status : </b>&nbsp;&nbsp;<?php echo get_name('Id','ReligionName',$row['Religion'],'LReligion'); ?></td>
+                                                            <b>Religion :  </b>&nbsp;&nbsp;<?php echo get_name('Id','ReligionName',$row['Religion'],'LReligion'); ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" style="padding-left:5px;">
-                                                            <b>NID/ Passport No : </b>&nbsp;&nbsp;<?php echo $row['MaritalStatus']; ?></td>
+                                                            <b>Marital Status : </b>&nbsp;&nbsp;<?php echo $row['MaritalStatus']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" style="padding-left:5px;">
+                                                            <b>NID/ Passport No : </b>&nbsp;&nbsp;<?php echo $row['NationalId']; ?></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -296,7 +316,7 @@
                                                     <?php echo $reffr['RefOccupation']; ?><br>
                                                     <?php echo $reffr['RefAddress']; ?><br>
                                                     Cell: <?php echo $reffr['RefContact']; ?><br>
-                                                    Email: <?php echo $reffr['RefRelationship']; ?>
+                                                    Email: <?php echo $reffr['RefEmail']; ?>
                                                 </td>
                                                 
                                         <?php $i ++;

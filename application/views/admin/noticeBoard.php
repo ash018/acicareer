@@ -28,7 +28,7 @@
                                 <th>Description</th>
                                 <th>Date</th>
                                 <th>Action</th>
-                                <th>File</th>
+                                <!--th>File</th-->
                             </tr>
                         <?php if (!empty($previousnotice)) foreach ($previousnotice as $row): ?>
                             <tr>
@@ -39,7 +39,7 @@
                                     <a class="btn btn-success btn-xs" href="<?php echo base_url(); ?>admin/NoticeBoard/NoticeEdit/<?php echo $row['NoticeId']; ?>">Edit</a> &nbsp;&nbsp;&nbsp;
                                     <a class="btn btn-danger btn-xs" onclick="return confirm_delete();" href="<?php echo base_url(); ?>admin/NoticeBoard/NoticeDelete/<?php echo $row['NoticeId']; ?>">Delete</a>
                                 </td>
-                                <td><?php echo $row['NoticeFile']; ?></td>
+                                <!--td><?php echo $row['NoticeFile']; ?></td-->
                             </tr>
                         <?php endforeach; ?> 
                     </table>

@@ -77,7 +77,7 @@
                                         <?php echo $row['JobTitel']; ?>
                                         </a>
                                     </td>
-                                    <td style="text-align: center"><?php echo substr($row['EntryDate'], 0, 11); ?></td>							
+                                    <td style="text-align: center"><?php echo get_date_format($row['AppliedDate']); ?></td>
                                     <td style="text-align: center"> <?php echo "Applied"; ?></td>   	
                                     <td style="text-align: center"> 
                                     <?php if($row['ShortList']==1)echo "Yes";else echo "No"; ?></td>   	

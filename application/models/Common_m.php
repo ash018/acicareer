@@ -31,11 +31,12 @@ class Common_m extends CI_Model {
     }
 
     function selectMyapply($UserId) {
-        $sql = "Select T1.*, T2.*, T3.*,T4.ShortList From AppliedJob T1 
+        $sql = "Select T1.EntryDate as AppliedDate,T1.*, T2.*, T3.*,T4.ShortList From AppliedJob T1 
                 Inner Join UserInfo T2 ON T1.UserId = T2.Id
                 Inner Join JobPost T3 ON T1.PostId = T3.PostId
                 left Join ShortList T4 on T1.UserId = T4.UserId and T1.PostId = T4.PostId 
                 WHERE T1.UserId = '$UserId'";
+
         $query = $this->db->query($sql);
         if ($query->num_rows() >= 1) {
             return $query->result_array();

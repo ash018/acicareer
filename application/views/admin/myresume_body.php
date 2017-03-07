@@ -8,12 +8,11 @@
               <div class="col-md-3">
                   <!--<img src="<?php echo base_url(); ?>assets/img/View-resume.jpg">-->
                    <?php if(!empty($Myresume)) foreach($Myresume as $row): ?>
-                      <img src="<?php echo base_url();?>assets/image/upload/thumbnail/<?php if(empty($row['UserPhoto'][0]['Thumb'])){echo "dummy-image.jpg";}else{echo $row['UserPhoto'][0]['Thumb'];}?>" width="110" >
-                      <br/>
+                      <img src="<?php echo base_url();?>assets/image/upload/thumbnail/<?php if(empty($row['UserPhoto'][0]['Thumb'])){echo "dummy-image.jpg";}else{echo $row['UserPhoto'][0]['Thumb'];}?>" width="110" height="120" >
                   <?php endforeach;?> 
               </div>
-              <div class="col-md-8 text-left" style="border: 1px solid #E6E6E6; margin-left: 30px;">
-                  <h4><?php echo $row['UserName']?></h4>
+              <div class="col-md-8 text-left" style="border: 1px solid #E6E6E6; margin-left: 30px; height:120px;">
+                  <h4><strong><?php echo $row['UserName']?></h4></strong>
                   <p>
                       <?php echo $row['Add1']; ?><br>
                       <b>Contact No: <?php echo $row['Mobile']; ?></b><br>
@@ -61,11 +60,30 @@
                     <?php 
                         $i = 1;
                         $year = 0;
-                        foreach ($row['Experience'] as $expr): 
+                       // var_dump($row['Experience']);
+                    foreach($row["Experience"] as $ThisExperience)$Experience[$ThisExperience["EndDate"]] = $ThisExperience;
+                    ksort($Experience);
+                        foreach (array_reverse($Experience) as $expr):
                     ?>
                         <tr>
                             <td>
-                                <b style="margin-left: 15px;">Company:</b><?php echo $expr['CompanyName']; ?>
+                                <?php
+                                echo $i.')';
+                                ?>
+                                <b style="margin-left: 15px;">Company: </b><?php echo $expr['CompanyName'].' (from ';
+                                for( $x = 0; $x<10; $x++ ) {
+                                    echo $expr['StartDate'][$x];
+                                }
+
+                                echo ' to ';
+
+                                for( $x = 0; $x<10; $x++ ) {
+                                    echo $expr['EndDate'][$x];
+                                }
+
+                                echo ' ) ';
+
+                                ?>
                                 <?php 
                                     $year += $expr['EndDate']-$expr['StartDate'];
                                 ?>
@@ -73,12 +91,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <b style="margin-left: 15px;">Designation: </b><?php echo $expr['Designation']; ?>
+                                <b style="margin-left: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Designation: </b><?php echo $expr['Designation']; ?>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <b style="margin-left: 15px;">Major Responsibility: </b>
+                                <b style="margin-left: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Major Responsibility: </b>
                             </td>
                         </tr>
                         <tr>
@@ -120,7 +138,7 @@
                                     <?php if($edu['IsForeignInstitute']==1){?><i style="color: #ED7D31;">Foreign institute</i><br><?php } ?>
                                     <?php echo $edu['EducationLevel']; ?>&nbsp;(<?php echo $edu['Faculty']; ?>)<br>
                                     Result: <?php
-                                       if($edu['QualificationAttained']=='Division') {
+                                       if($edu['QualificationAttained']=='Division/Class') {
 
                                            if($edu['Result']==1)
                                                echo $edu['Result'].'st  '.$edu['QualificationAttained'];
@@ -237,35 +255,35 @@
                              <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">                                     
                                   <tr>
                                       <td align="left" style="padding-left:5px;">
-                                          <b>Father's Name : </b>&nbsp;&nbsp;<?php echo $row['FatherName']; ?></td>
+                                          <b>Father's Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  </b>&nbsp;&nbsp;<?php echo $row['FatherName']; ?></td>
                                   </tr>
                                   <tr>
                                       <td align="left" style="padding-left:5px;">
-                                      <b>Mother's Name : </b>&nbsp;&nbsp;<?php echo $row['MotherName']; ?></td>
+                                      <b>Mother's Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?php echo $row['MotherName']; ?></td>
                                   </tr>
                                   <tr>
                                       <td align="left" style="padding-left:5px;">
-                                      <b>Gender : </b>&nbsp;&nbsp;<?php echo $row['Gender']; ?></td>
+                                      <b>Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?php echo $row['Gender']; ?></td>
                                   </tr>
                                   <tr>
                                       <td align="left" style="padding-left:5px;">
-                                          <b>Permanent Address : </b>&nbsp;&nbsp;<?php echo $row['Add1']; ?></td>
+                                          <b>Permanent Address &nbsp;:</b>&nbsp;&nbsp;<?php echo $row['Add1']; ?></td>
                                   </tr>
                                   <tr>
                                       <td align="left" style="padding-left:5px;">
-                                          <b>Date of Birth : </b>&nbsp;&nbsp;<?php echo get_date_format($row['DOB']); ?></td>
+                                          <b>Date of Birth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?php echo get_date_format($row['DOB']); ?></td>
                                   </tr>
                                   <tr>
                                       <td align="left" style="padding-left:5px;">
-                                          <b>Religion : </b>&nbsp;&nbsp;<?php echo get_name('Id','ReligionName',$row['Religion'],'LReligion'); ?></td>
+                                          <b>Religion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?php echo get_name('Id','ReligionName',$row['Religion'],'LReligion'); ?></td>
                                   </tr>
                                   <tr>
                                       <td align="left" style="padding-left:5px;">
-                                          <b>Marital Status : </b>&nbsp;&nbsp;<?php echo $row['MaritalStatus']; ?></td>
+                                          <b>Marital Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?php echo $row['MaritalStatus']; ?></td>
                                   </tr>
                                   <tr>
                                       <td align="left" style="padding-left:5px;">
-                                          <b>NID/ Passport No : </b>&nbsp;&nbsp;<?php echo $row['NationalId']; ?></td>
+                                          <b>NID/ Passport No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?php echo $row['NationalId']; ?></td>
                                   </tr>
                               </table>
                           </td>

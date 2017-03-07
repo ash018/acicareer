@@ -49,18 +49,21 @@
                             </div>
                         </div>
                     </div>
-                </div>            
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="one_colamn_year">
                             <select name="EducationLevel[]" id="EducationLevel<?php echo $head; ?>">
-                                <option value="">Area of Study *</option>
-                                <?php echo isset($rdata['EducationLevel']) ? select_option_selected('LEducationLevel', 'Id', 'EducationLevel', $rdata['EducationLevel']) : select_option('LEducationLevel', 'Id', 'EducationLevel'); ?>
+                                <option value="">Level of Education *</option>
+                                <?php
+                                 echo select_option('LEducationLevel', 'Id', 'EducationLevel');
+
+                                //echo isset($rdata['EducationLevel']) ? select_option_selected('LEducationLevel', 'Id', 'EducationLevel', $rdata['EducationLevel']) : select_option('LEducationLevel', 'Id', 'EducationLevel'); ?>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="one_colamn_year">                        
+                        <div class="one_colamn_year">
                             <input type="text" autocomplete="off" name="Faculty[]" id="Faculty<?php echo $head; ?>" value="<?php echo isset($rdata['Faculty']) ? $rdata['Faculty'] : '' ?>"  placeholder="Major/Concentration *" maxlength="250"  />
                             <label class="error" for="Faculty<?php echo $head; ?>" id="Faculty<?php echo $head; ?>_error">This field is required.</label>
     <!--                        <select name="Faculty[]" id="Faculty<?php echo $head; ?>">
@@ -89,7 +92,7 @@
                         <div class="one_colamn_school">
                             <select name="QualificationAttained[]" id="QualificationAttained<?php echo $head; ?>">
                                 <option value="">out of</option>
-                                    <option value="Division" <?php if(isset($rdata['QualificationAttained']) && $rdata['QualificationAttained'] == 'Division'){echo 'selected';}?>>Division/Class</option>
+                                    <option value="Division/Class" <?php if(isset($rdata['QualificationAttained']) && $rdata['QualificationAttained'] == 'Division/Class'){echo 'selected';}?>>Division/Class</option>
                                     <option value="5" <?php if(isset($rdata['QualificationAttained']) && $rdata['QualificationAttained'] == '5'){echo 'selected';}?>>5.00</option>
                                     <option value="4" <?php if(isset($rdata['QualificationAttained']) && $rdata['QualificationAttained'] == '4'){echo 'selected';}?>>4.00</option>
                             </select>
@@ -150,7 +153,7 @@ if( $counter < 5){
             <div class="col-md-6">
                 <div class="one_colamn_year">
                     <select name="EducationLevel[]" id="EducationLevel<?php echo $counter + $edform; ?>">
-                        <option value="">Area of Study *</option>
+                        <option value="">Level of Education *</option>
                         <?php echo select_option('LEducationLevel', 'Id', 'EducationLevel'); ?>
                     </select>
                     <label class="error" for="EducationLevel<?php echo $counter + $edform; ?>" id="EducationLevel<?php echo $counter + $edform; ?>_error">This field is required.</label>
@@ -188,7 +191,7 @@ if( $counter < 5){
                 <div class="one_colamn_school">
                     <select name="QualificationAttained[]" id="QualificationAttained<?php echo $counter + $edform; ?>">
                         <option value="">out of</option>
-                        <option value="Division">Division/Class</option>
+                        <option value="Division/Class">Division/Class</option>
                         <option value="5">5.00</option>
                         <option value="4">4.00</option>
                     </select>

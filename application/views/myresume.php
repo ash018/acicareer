@@ -29,7 +29,7 @@
                     <li role="presentation"><a href="<?php echo base_url(); ?>home/myAccount">My Status</a></li>
                     <li role="presentation" class="active"><a href="<?php echo base_url(); ?>home/myresume">View Resume</a></li>
                     <li role="presentation"><a href="<?php echo base_url(); ?>career/careerform">Edit Resume</a></li>
-                    <li role="presentation"><a href="<?php echo base_url(); ?>career/careerform">Change Password</a></li>
+                    <li role="presentation"><a href="<?php echo base_url(); ?>career/careerform#changepassword">Change Password</a></li>
                 </ul>            
             </div>
             <div class="col-md-8">             

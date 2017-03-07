@@ -71,11 +71,39 @@
                                         <?php
                                         $i = 1;
                                         $year = 0;
-                                        foreach ($row['Experience'] as $expr):
+
+
+                                        foreach($row["Experience"] as $ThisExperience)$Experience[$ThisExperience["EndDate"]] = $ThisExperience;
+                                        ksort($Experience);
+                                        foreach (array_reverse($Experience) as $expr):
+
                                             ?>
                                             <tr>
                                                 <td>
-                                                    <b style="margin-left: 15px;">Company:</b><?php echo $expr['CompanyName']; ?>
+                                                    <?php
+                                                    echo $i.')';
+                                                    ?>
+                                                    <b style="margin-left: 15px;">Company: </b><?php echo $expr['CompanyName'].' (from ';
+                                                    for( $x = 0; $x<10; $x++ ) {
+                                                        echo $expr['StartDate'][$x];
+                                                    };
+
+
+                                                    echo ' to ';
+
+                                                    for( $x = 0; $x<10; $x++ ) {
+                                                        echo $expr['EndDate'][$x];
+                                                    }
+
+                                                    echo ' ) ';
+
+                                                    ?>
+
+
+
+
+
+
                                                     <?php
                                                     $year += $expr['EndDate']-$expr['StartDate'];
                                                     ?>
@@ -83,12 +111,12 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <b style="margin-left: 15px;">Designation: </b><?php echo $expr['Designation']; ?>
+                                                    <b style="margin-left: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Designation: </b><?php echo $expr['Designation']; ?>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <b style="margin-left: 15px;">Major Responsibility: </b>
+                                                    <b style="margin-left: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Major Responsibility: </b>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -172,7 +200,14 @@
                                                         <td width="15%" align="center" style="border-right:1px solid #666666"><strong>Taken year</strong></td>
                                                     </tr>
                                                     <?php $i = 1;
-                                                    foreach ($row['Training'] as $edu): ?>
+                                                    foreach($row["Training"] as $ThisTraining)$Training[$ThisTraining["TakenYear"]] = $ThisTraining;
+                                                     // if($row["Training"]==1)
+                                                        ksort($Training);
+
+
+
+
+                                                    foreach (array_reverse($row['Training']) as $edu): ?>
                                                         <tr>
                                                             <td width="20%" align="center" style="border-right:1px solid #666666;border-top:1px solid #666666;"><?php echo $edu['InstituteName']; ?></td>
                                                             <td width="15%" align="center" style="border-right:1px solid #666666;border-top:1px solid #666666;"><?php echo $edu['TrainingTitle']; ?></td>
